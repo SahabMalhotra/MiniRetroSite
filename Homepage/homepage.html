@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Skittles, Fruity Candy, Mars Incorporated" />
+    <meta name="description"
+          content="Buy skittles which is full of juiciness" />
+    <title>SKITTLES</title>
+    <link rel="icon" href="/media/favicon.ico.jpg" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="homepage.css" />
+    <link rel="stylesheet" href="/Header/header.css" />
+    <link rel="stylesheet" href="/Footer/footer.css" />
+</head>
+
+<body>
+    <!-- Placeholder for the header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Content container -->
+    <div class="content-container">
+        <img src="\media\maiimage.jpeg" alt="" class="main-image" />
+        <p class="sum">
+            208 million years ago, from the ocean below, a colorful force with the
+            strength of a thousand rainbows pierced the surface, cracked Pangea’s
+            supercontinent, and altered the atmospheric levels of fruity juiciness
+            on planet Earth forever. <br />
+            <br />
+            Delicious tragedy struck 142 million years later, when the Great Rainbow
+            of BOOM buried the planet and all of its emo dinos in a layer of
+            colorful candy a mile deep. It would take another hundred million years
+            before resourceful squirrels all over the world started bagging them and
+            storing them in every convenience store they could find. They’re still
+            doing it to this day. And that’s why you’ll never see a squirrel get
+            charged for SKITTLES — ever.
+            <br />
+            <br />
+            From this geyser sprayed forth an endless rain of SKITTLES in Lemon,
+            Strawberry, Grape, Orange, and one flavor too notorious to name.
+            SKITTLES covered the land far and wide, high and low, as far as the eye
+            could see. Every dinosaur was full and happy, and spent their days
+            creating art and writing terrible love songs
+        </p>
+        <iframe width="1000"
+                height="500"
+                src="/media/skittlesvideo.mp4"
+                allowfullscreen></iframe>
+    </div>
+
+    <!-- Placeholder for the footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript to load header and footer -->
+    <script>
+      // Function to load an HTML file into an element
+      function loadHTML(file, elementId) {
+        fetch(file)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+          })
+          .then((html) => {
+            document.getElementById(elementId).innerHTML = html;
+          })
+          .catch((error) => console.error("Error loading HTML:", error));
+      }
+
+      // Load the header and footer
+      loadHTML("/Header/header.html", "header-placeholder");
+      loadHTML("/Footer/footer.html", "footer-placeholder");
+
+      // Cool animation for the main image
+      document.addEventListener("DOMContentLoaded", () => {
+        var mainImage = document.querySelector(".main-image");
+        mainImage.addEventListener("click", function () {
+          var currentBrightness = mainImage.style.filter.replace(/\D/g, "");
+          var newBrightness =
+            currentBrightness === "" || currentBrightness < 100
+              ? "100%"
+              : "60%";
+          mainImage.style.filter = "brightness(" + newBrightness + ")";
+        });
+      });
+    </script>
+</body>
+</html>
